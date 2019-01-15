@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000
+var multer = require('multer');
+var upload = multer();
 
-app.post("/herokutest", function (req, res) {
+app.post("/herokutest", upload.array(), function (req, res) {
   res.status(500).send("Here there should be an error with valuable information for the user");
 });
 
